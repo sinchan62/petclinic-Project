@@ -11,9 +11,8 @@ pipeline {
     post {
         success {
             script {
-                echo 'puch imaage to docker hub'
-                withCredentials([usernamePassword(credentialsId:"dockerhubcred",passwordVariable:"dockerhubpass",usernameVariable:"dockerhubuser")]) {
-                    sh "docker petclinic-app ${env.dockerhubuser}/petclinic-app:latest"
+                echo 'push image to docker hub'
+                withCredentials([usernamePassword(credentialsId:"dockerhubcred", passwordVariable:"dockerhubpass", usernameVariable:"dockerhubuser")]) {
                     sh "docker login -u ${env.dockerhubuser} -p ${env.dockerhubpass}"
                     sh "docker push ${env.dockerhubuser}/petclinic-app:latest"
                 }
