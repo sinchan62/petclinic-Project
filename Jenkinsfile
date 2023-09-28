@@ -4,7 +4,8 @@ pipeline {
     environment {
         AWS_DEFAULT_REGION = 'ap-south-1'
         ECR_REPOSITORY = 'rohit-dummy-petclinic'
-        DOCKER_IMAGE_TAG = 'latest'
+        DOCKER_IMAGE_TAG = "v${BUILD_NUMBER}"
+
         ECR_REGISTRY = "212392723633.dkr.ecr.ap-south-1.amazonaws.com"
     }
 
